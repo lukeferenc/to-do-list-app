@@ -3,7 +3,7 @@
 function newItem(){
     let li = $('<li></li>');
     let inputValue = $('#input').val();
-    li.append(inputValue);
+    $(li).append(document.createTextNode(inputValue));
       
     if (inputValue === '') {
       alert('You must write something!');
@@ -23,14 +23,15 @@ function newItem(){
     });
   
   // Adding the delete button "X": 
-    let crossOutButton = $('<crossOutButton></crossOutButton>');
+    let crossOutButton = $('<crossOutButton> </crossOutButton>');
     crossOutButton.append(document.createTextNode('X'));
     li.append(crossOutButton);
       
-    crossOutButton.on('click', deleteListItem);
-    function deleteListItem(){
-      li.addClass('delete')
-    }
+    $(crossOutButton).on('click', deleteListItem);
+
+    function deleteListItem() {
+      $(li).addClass('delete');
+  }
   
   // Reordering the items:
   
